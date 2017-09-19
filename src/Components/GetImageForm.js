@@ -10,6 +10,7 @@ export default class GetImageForm extends Component{
         super(props);
         this.handleRover = this.handleRover.bind(this);
         this.handleCamera = this.handleCamera.bind(this);
+        this.handleSol = this.handleSol.bind(this);
         this.fetchRoverImage = this.fetchRoverImage.bind(this);
 
 
@@ -49,6 +50,15 @@ export default class GetImageForm extends Component{
 
             fetch(imageUrl)
             .then(response =>{return response.json()})
+            .then((data) => {
+                console.log(data);
+                let allImages = data;
+                this.setState({images: allImages})
+
+                console.log(allImages);
+                console.log(this.state.images);
+            });
+      console.log(this.state.images);
         }
 
 
@@ -70,11 +80,9 @@ export default class GetImageForm extends Component{
                 </select>
                 <label htmlFor="sol">Martian Sol: 1000-2000</label>
                 <input type="number" onChange={this.handleSol} max="2000" min="1000" value={this.state.value}/>
-
-                <GetImageButton/>
-
                 </form>
 
+                <GetImageButton fetchRoverImage={this.fetchRoverImage} rover={this.state.rover}/>
             </div>
         )
     }
