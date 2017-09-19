@@ -6,7 +6,7 @@ export default class GetImageButton extends Component {
             <form onSubmit={this.props.fetchRoverImage}>
                 <button type="submit" > Get Rover Image(s)</button>
 
-                <p textAlign="center" ><strong>{this.props.rover}</strong></p>
+                <p><strong>{this.props.rover}</strong></p>
             </form>
         )
     }

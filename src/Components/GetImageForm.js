@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GetImageButton from './GetImageButton';
-
+import ImageDisplay from './ImageDisplay';
 
 const API_KEY = "U5dIq61E7fD8cEyQKJEq4Mx7vymTa8VF2j2SXF8Y";
 
@@ -51,14 +51,13 @@ export default class GetImageForm extends Component{
             fetch(imageUrl)
             .then(response =>{return response.json()})
             .then((data) => {
-                console.log(data);
-                let allImages = data;
+                console.log(data.photos.img_src);
+                let allImages = data.photos;
                 this.setState({images: allImages})
 
                 console.log(allImages);
                 console.log(this.state.images);
             });
-      console.log(this.state.images);
         }
 
 
@@ -70,7 +69,7 @@ export default class GetImageForm extends Component{
                 <select onChange={this.handleRover} id="rover" value={this.state.value}>
                     <option value="Curiosity">Curiosity</option>
                     <option value="Opportunity">Opportunity</option>
-                    <option value="Spirit">Spirt</option>
+                    <option value="Spirit">Spirit</option>
                 </select>
                 <label htmlFor="camera">Camera Type</label>
                 <select onChange={this.handleCamera} id="rover" value={this.state.value}>
@@ -83,6 +82,8 @@ export default class GetImageForm extends Component{
                 </form>
 
                 <GetImageButton fetchRoverImage={this.fetchRoverImage} rover={this.state.rover}/>
+
+                <ImageDisplay allState={this.state} images={this.state.images}/>
             </div>
         )
     }
