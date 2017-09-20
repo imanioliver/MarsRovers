@@ -55,8 +55,8 @@ export default class GetImageForm extends Component{
                 let allImages = data.photos;
                 this.setState({images: allImages})
 
-                console.log(allImages);
-                console.log(this.state.images);
+                // console.log(allImages);
+                // console.log(this.state.images);
             });
         }
 

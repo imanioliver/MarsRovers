@@ -11,4 +11,4 @@ export default class GetImageButton extends Component {
         )
     }
 
-}
+}  
