@@ -63,7 +63,7 @@ export default class GetImageForm extends Component{
 
     render() {
         return (
-            <div>
+            <div className="jumbotron" style={{backgroundColor:"gray", color:"magenta", textAlign:"center", font:"Arizona"}}>
                 <form>
                 <label htmlFor="rover">Rover</label>
                 <select onChange={this.handleRover} id="rover" value={this.state.value}>
@@ -83,7 +83,7 @@ export default class GetImageForm extends Component{
 
                 <GetImageButton fetchRoverImage={this.fetchRoverImage} rover={this.state.rover}/>
 
-                <ImageDisplay allState={this.state} images={this.state.images}/>
+                <ImageDisplay allState={this.state} images={this.state.images} />
             </div>
         )
     }

@@ -6,7 +6,7 @@ import GetImageForm from "./GetImageForm.js";
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="theApp" style={{backgroundColor:"#18121E"}}>
         <GetImageForm/>
       </div>
     );
